@@ -1,5 +1,5 @@
 <h1 align="center">
-  @yunzhen/access-expression
+  @yunzhen/permission-expression
 </h1>
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -12,13 +12,13 @@
 ## 安装
 
 ```bash
-pnpm add @yunzhen/access-expression
+pnpm add @yunzhen/permission-expression
 ```
 
 ## 使用
 
 ```ts
-import { hasPermission } from '@yunzhen/access-expression'
+import { hasPermission } from '@yunzhen/permission-expression'
 
 const permissions = new Set([
   'document.read',
@@ -48,7 +48,7 @@ hasPermission('document.delete | document.share', permissions) // true
 `compile` 会将表达式转换为可序列化 AST。可在多个权限集合上复用，避免重复解析。
 
 ```ts
-import { compile, hasPermission } from '@yunzhen/access-expression'
+import { compile, hasPermission } from '@yunzhen/permission-expression'
 
 const authority = compile('document.read & !document.delete')
 
@@ -59,7 +59,7 @@ hasPermission(authority, new Set(['document.read', 'document.delete'])) // false
 ## 错误处理
 
 ```ts
-import { compile, ExpressionSyntaxError } from '@yunzhen/access-expression'
+import { compile, ExpressionSyntaxError } from '@yunzhen/permission-expression'
 
 try {
   compile('document.read &')
@@ -91,11 +91,11 @@ pnpm run lint
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@yunzhen/access-expression?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmx.dev/package/@yunzhen/access-expression
-[npm-downloads-src]: https://img.shields.io/npm/dm/@yunzhen/access-expression?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmx.dev/package/@yunzhen/access-expression
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/@yunzhen/access-expression?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=@yunzhen/access-expression
+[npm-version-src]: https://img.shields.io/npm/v/@yunzhen/permission-expression?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmx.dev/package/@yunzhen/permission-expression
+[npm-downloads-src]: https://img.shields.io/npm/dm/@yunzhen/permission-expression?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmx.dev/package/@yunzhen/permission-expression
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@yunzhen/permission-expression?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@yunzhen/permission-expression
 [license-src]: https://img.shields.io/github/license/yunzhencc/access-expression.svg?style=flat&colorA=080f12&colorB=1fa669
 [license-href]: https://github.com/yunzhencc/access-expression/blob/main/LICENSE.md

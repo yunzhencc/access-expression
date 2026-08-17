@@ -1,5 +1,5 @@
 {
-  "name": "@yunzhen/access-expression",
+  "name": "@yunzhen/permission-expression",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@11.22.0",
