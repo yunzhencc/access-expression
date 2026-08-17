@@ -28,4 +28,5 @@ export declare class ExpressionSyntaxError extends SyntaxError {
 // #region Functions
 export declare function compile(_: string): PermissionExpression;
 export declare function hasPermission(_: Authority, _: ReadonlySet<string>): boolean;
+export declare function stringify(_: PermissionExpression): string;
 // #endregion

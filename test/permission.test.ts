@@ -1,6 +1,6 @@
 import type { ExpressionSyntaxError, ExpressionSyntaxErrorCode } from '../src'
 import { describe, expect, it } from 'vitest'
-import { compile, hasPermission } from '../src'
+import { compile, hasPermission, stringify } from '../src'
 
 const invalidExpressions = [
   ['', 'EMPTY_EXPRESSION', 0],
@@ -83,5 +83,22 @@ describe('compile', () => {
       code,
       position,
     } satisfies Partial<ExpressionSyntaxError>))
+  })
+})
+
+describe('stringify', () => {
+  it.each([
+    ['document.read', 'document.read'],
+    ['!document.delete', '!document.delete'],
+    ['document.read | document.write & !document.delete', 'document.read | document.write & !document.delete'],
+    ['(document.read | document.write) & document.share', '(document.read | document.write) & document.share'],
+    ['document.read & (document.write & document.share)', 'document.read & (document.write & document.share)'],
+    ['document.read | (document.write | document.share)', 'document.read | (document.write | document.share)'],
+  ])('preserves the tree for %s', (source, expected) => {
+    const expression = compile(source)
+    const result = stringify(expression)
+
+    expect(result).toBe(expected)
+    expect(compile(result)).toEqual(expression)
   })
 })

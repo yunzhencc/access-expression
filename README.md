@@ -56,6 +56,18 @@ hasPermission(authority, new Set(['document.read'])) // true
 hasPermission(authority, new Set(['document.read', 'document.delete'])) // false
 ```
 
+## 输出表达式
+
+`stringify` 会将 AST 输出为可再次 `compile` 的表达式，并保留原有的分组结构。
+
+```ts
+import { compile, stringify } from '@yunzhen/permission-expression'
+
+const authority = compile('document.read & (document.write & document.share)')
+
+stringify(authority) // 'document.read & (document.write & document.share)'
+```
+
 ## 错误处理
 
 ```ts

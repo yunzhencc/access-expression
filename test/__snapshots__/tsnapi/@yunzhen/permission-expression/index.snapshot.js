@@ -12,4 +12,5 @@ export class ExpressionSyntaxError extends SyntaxError {
 // #region Functions
 export function compile(_) {}
 export function hasPermission(_, _) {}
+export function stringify(_) {}
 // #endregion

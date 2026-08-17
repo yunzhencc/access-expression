@@ -43,6 +43,10 @@ export function compile(source: string): PermissionExpression {
   return expression
 }
 
+export function stringify(expression: PermissionExpression): string {
+  return stringifyExpression(expression)
+}
+
 export function hasPermission(authority: Authority, permissions: ReadonlySet<string>): boolean {
   const expression = typeof authority === 'string' ? compile(authority) : authority
 
@@ -56,6 +60,17 @@ export function hasPermission(authority: Authority, permissions: ReadonlySet<str
     case 'or':
       return hasPermission(expression.left, permissions) || hasPermission(expression.right, permissions)
   }
+}
+
+function stringifyExpression(expression: PermissionExpression, parentPrecedence = 0, rightChild = false): string {
+  const precedence = expression.type === 'or' ? 1 : expression.type === 'and' ? 2 : expression.type === 'not' ? 3 : 4
+  const source = expression.type === 'permission'
+    ? expression.name
+    : expression.type === 'not'
+      ? `!${stringifyExpression(expression.expression, precedence)}`
+      : `${stringifyExpression(expression.left, precedence)} ${expression.type === 'and' ? '&' : '|'} ${stringifyExpression(expression.right, precedence, true)}`
+
+  return precedence < parentPrecedence || (rightChild && precedence === parentPrecedence) ? `(${source})` : source
 }
 
 class Parser {
