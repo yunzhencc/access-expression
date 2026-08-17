@@ -1,7 +1,7 @@
 {
   "name": "@yunzhen/permission-expression",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "packageManager": "pnpm@11.22.0",
   "description": "零依赖的 TypeScript 权限表达式解析与判断库",
   "author": "YunZhen",
