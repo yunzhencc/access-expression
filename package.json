@@ -68,5 +68,8 @@
   },
   "nano-staged": {
     "*": "eslint --fix"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
