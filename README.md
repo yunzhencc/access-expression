@@ -7,9 +7,7 @@
 [![bundle][bundle-src]][bundle-href]
 [![License][license-src]][license-href]
 
-零依赖的 TypeScript 权限表达式解析与判断库。
-
-它只处理权限集合的布尔逻辑，适合控制菜单、按钮和路由的可见性；服务端仍必须独立执行实际鉴权。
+零依赖的 TypeScript 权限表达式解析与判断库
 
 ## 安装
 
