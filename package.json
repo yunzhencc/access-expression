@@ -3,15 +3,15 @@
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@11.22.0",
-  "description": "_description_",
+  "description": "零依赖的 TypeScript 权限表达式解析与判断库",
   "author": "YunZhen",
   "license": "MIT",
-  "homepage": "https://github.com/yunzhencc/access-expression#readme",
+  "homepage": "https://github.com/yunzhencc/permission-expression#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yunzhencc/access-expression.git"
+    "url": "git+https://github.com/yunzhencc/permission-expression.git"
   },
-  "bugs": "https://github.com/yunzhencc/access-expression/issues",
+  "bugs": "https://github.com/yunzhencc/permission-expression/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -47,7 +47,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "catalog:cli",
     "@antfu/ni": "catalog:cli",
-    "@antfu/utils": "catalog:inlined",
     "@types/node": "catalog:types",
     "bumpp": "catalog:cli",
     "eslint": "catalog:cli",

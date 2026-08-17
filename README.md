@@ -97,5 +97,5 @@ pnpm run lint
 [npm-downloads-href]: https://npmx.dev/package/@yunzhen/permission-expression
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/@yunzhen/permission-expression?style=flat&colorA=080f12&colorB=1fa669&label=minzip
 [bundle-href]: https://bundlephobia.com/result?p=@yunzhen/permission-expression
-[license-src]: https://img.shields.io/github/license/yunzhencc/access-expression.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/yunzhencc/access-expression/blob/main/LICENSE.md
+[license-src]: https://img.shields.io/github/license/yunzhencc/permission-expression.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/yunzhencc/permission-expression/blob/main/LICENSE.md
