@@ -12,6 +12,28 @@ const invalidExpressions = [
   [`${'!'.repeat(1001)}document.read`, 'EXPRESSION_TOO_DEEP', 1000],
 ] as const satisfies readonly (readonly [string, ExpressionSyntaxErrorCode, number])[]
 
+const readmePermissions = new Set([
+  'document.read',
+  'document.share',
+])
+
+describe('documented examples', () => {
+  it.each([
+    'document.read & document.share',
+    'document.read & !document.delete',
+    'document.delete | document.share',
+  ])('allows %s', (expression) => {
+    expect(hasPermission(expression, readmePermissions)).toBe(true)
+  })
+
+  it('reuses a compiled expression', () => {
+    const authority = compile('document.read & !document.delete')
+
+    expect(hasPermission(authority, new Set(['document.read']))).toBe(true)
+    expect(hasPermission(authority, new Set(['document.read', 'document.delete']))).toBe(false)
+  })
+})
+
 describe('hasPermission', () => {
   it('allows an assigned permission', () => {
     expect(hasPermission('document.read', new Set(['document.read']))).toBe(true)
